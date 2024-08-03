@@ -11,12 +11,17 @@
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.52.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.424.0",
     "next": "14.2.5",
     "next-sanity": "^9.4.3",
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.52.4",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.12",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",

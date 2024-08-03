@@ -1,0 +1,27 @@
+name: CI
+
+on: [push, pull_request]
+
+env:
+  NEXT_PUBLIC_SANITY_PROJECT_ID: "fake-sanity-project-id"
+  NEXT_PUBLIC_SANITY_DATASET: "fake-sanity-dataset"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Print Environment Variable
+        run: echo $MY_ENV_VAR

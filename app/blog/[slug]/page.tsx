@@ -45,7 +45,7 @@ const BlogDetailPage = async ({
           className="rounded-lg my-8 border border-slate-200 mx-auto"
           priority
         />
-        <div>
+        <div className="prose prose-blue dark:prose-invert prose-li:marker:text-blue-500">
           <PortableText value={blog.content} />
         </div>
       </div>

@@ -1,4 +1,6 @@
-export default {
+import { defineType } from "sanity";
+
+const blog = defineType({
   name: "blog",
   title: "Blog",
   type: "document",
@@ -37,4 +39,6 @@ export default {
       ],
     },
   ],
-};
+});
+
+export default blog;

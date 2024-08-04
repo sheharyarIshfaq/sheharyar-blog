@@ -2,16 +2,24 @@ import Navbar from "@/components/Navbar";
 import { BlogDetail } from "@/lib/interface";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { Metadata } from "next";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import React from "react";
 
 export const revalidate = 30; // Revalidate every 30 seconds
 
+interface IBlogDetail {
+  params: {
+    slug: string;
+  };
+}
+
 async function getBlogDetails(slug: string) {
   const query = `
     *[_type == 'blog' && slug.current == '${slug}']{
   title,
+  shortDescription,
   coverImage,
     content
 }[0]`;
@@ -21,13 +29,35 @@ async function getBlogDetails(slug: string) {
   return data;
 }
 
-const BlogDetailPage = async ({
+export const generateMetadata = async ({
   params,
-}: {
-  params: {
-    slug: string;
+}: IBlogDetail): Promise<Metadata | undefined> => {
+  const blog: BlogDetail = await getBlogDetails(params.slug);
+  if (!blog) return;
+
+  return {
+    title: blog.title,
+    description: blog.shortDescription,
+    openGraph: {
+      title: blog.title,
+      description: blog.shortDescription,
+      type: "article",
+      url: `https://sheharyar-blog.vercel.app/blog/${params.slug}`,
+      locale: "en_US",
+      siteName: "Sheharyar's Blog",
+      images: [
+        {
+          url: urlFor(blog.coverImage).width(1200).height(630).url(),
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+    },
   };
-}) => {
+};
+
+const BlogDetailPage = async ({ params }: IBlogDetail) => {
   const blog: BlogDetail = await getBlogDetails(params.slug);
   return (
     <div>

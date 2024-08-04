@@ -7,6 +7,7 @@ export interface BlogCard {
 
 export interface BlogDetail {
   title: string;
+  shortDescription: string;
   coverImage: any;
   content: any;
 }

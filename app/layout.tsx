@@ -8,8 +8,17 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sheharyar-blog.vercel.app"),
   title: "Sheharyar's Blog",
   description: "Get the latest updates on web development and programming.",
+  openGraph: {
+    title: "Sheharyar's Blog",
+    description: "Get the latest updates on web development and programming.",
+    type: "website",
+    url: "https://sheharyar-blog.vercel.app",
+    locale: "en_US",
+    siteName: "Sheharyar's Blog",
+  },
 };
 
 export default function RootLayout({

@@ -28,7 +28,7 @@ export default async function Home() {
   return (
     <div>
       <Navbar />
-      <div className="container py-6">
+      <div className="container py-8">
         {blogs?.length === 0 && (
           <p className="text-lg text-slate-400">No blogs found</p>
         )}

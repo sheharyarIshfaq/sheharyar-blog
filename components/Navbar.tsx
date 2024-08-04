@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="container flex justify-between items-center py-6 border-b border-slate-200">
       <Link href="/" className="text-3xl font-bold">
-        Sheharyar's <span className="text-blue-500">Blog</span>
+        Sheharyar&apos;s <span className="text-blue-500">Blog</span>
       </Link>
       <ModeToggle />
     </nav>

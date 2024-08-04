@@ -33,7 +33,7 @@ export default async function Home() {
           <p className="text-lg text-slate-400">No blogs found</p>
         )}
         {blogs.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog, index) => (
               <Card key={index} className="flex flex-col">
                 <Image

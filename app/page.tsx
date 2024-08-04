@@ -35,7 +35,7 @@ export default async function Home() {
         {blogs.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {blogs.map((blog, index) => (
-              <Card key={index}>
+              <Card key={index} className="flex flex-col">
                 <Image
                   src={urlFor(blog.coverImage).url()}
                   alt={blog.title}
@@ -43,11 +43,11 @@ export default async function Home() {
                   height={500}
                   className="rounded-t-lg h-[200px] w-full object-cover"
                 />
-                <CardContent className="mt-5">
+                <CardContent className="mt-5 grow flex flex-col">
                   <h2 className="text-xl font-bold line-clamp-2 text-blue-500">
                     {blog.title}
                   </h2>
-                  <p className="text-slate-400 line-clamp-3 mt-1">
+                  <p className="text-slate-400 line-clamp-3 mt-1 grow">
                     {blog.shortDescription}
                   </p>
                   <Button size="sm" className="w-full mt-3" asChild>
